@@ -97,3 +97,34 @@ buttons.forEach((button) => {
     });
   }
 });
+
+document.addEventListener("keydown", (event) => {
+  const key = event.key;
+
+  if (!isNaN(key)) {
+    document.getElementById(key).click(); 
+  }
+
+  if (key === "+" || key === "-" || key === "*" || key === "/") {
+    const operatorButton = Array.from(buttons).find(
+      (button) => button.value === key
+    );
+    operatorButton.click();
+  }
+
+  if (key === "Enter") {
+    document.getElementById("=").click();
+  }
+
+  if (key === "Backspace") {
+    document.getElementById("backspace").click();
+  }
+
+  if (key === ".") {
+    document.getElementById(".").click();
+  }
+
+  if (key.toUpperCase() === "C") {
+    document.getElementById("C").click();
+  }
+});

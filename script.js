@@ -11,6 +11,9 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+  if (num2 === 0) {
+    return "undefined";
+  }
   return num1 / num2;
 }
 
@@ -31,10 +34,8 @@ function operate(num1, num2, operator) {
   }
 }
 
-// Populating Display with numbers
-
 let displayValue = "";
-let operator = "";
+let operator = NaN;
 const buttons = document.querySelectorAll(".calculator-btns button");
 const displayDiv = document.querySelector("#output");
 const previousDisplayDiv = document.querySelector("#output-previous");
@@ -49,8 +50,8 @@ buttons.forEach((button) => {
     });
   } else if (button.classList.contains("operator")) {
     button.addEventListener("click", () => {
-      if (!num1) {
-        num1 = displayValue;
+      num1 = displayValue;
+      if (num1 && !operator) {
         previousDisplayDiv.textContent = num1;
         displayValue = "";
         displayDiv.textContent = displayValue;
@@ -62,8 +63,16 @@ buttons.forEach((button) => {
       if (num1 && operator) {
         previousDisplayDiv.textContent = "";
         num2 = displayValue;
-        displayValue = operate(num1, num2, operator);
-        displayDiv.textContent = displayValue;
+        if (!num2) {
+          displayValue = num1;
+          displayDiv.textContent = displayValue;
+        } else {
+          displayValue = operate(num1, num2, operator);
+          displayDiv.textContent = displayValue;
+        }
+        if (displayDiv.textContent.length > 9) {
+          displayDiv.textContent = displayValue.toFixed(9);
+        }
       }
     });
   } else if (button.id === "C") {
@@ -72,6 +81,13 @@ buttons.forEach((button) => {
         (displayValue = ""),
         (displayDiv.textContent = "");
       (num1 = NaN), (num2 = NaN), (operate = NaN);
+    });
+  } else if (button.id === ".") {
+    button.addEventListener("click", () => {
+      if (displayValue.indexOf(".") < 0) {
+        displayValue += ".";
+        displayDiv.textContent = displayValue;
+      }
     });
   }
 });

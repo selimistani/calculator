@@ -121,3 +121,8 @@ button:hover {
 \.:hover {
   background-color: #8c8c8c;
 }
+
+#backspace {
+  grid-column: span 2;
+  background-color: #d32f2f;
+}

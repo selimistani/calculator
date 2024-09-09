@@ -90,5 +90,10 @@ buttons.forEach((button) => {
         displayDiv.textContent = displayValue;
       }
     });
+  } else if (button.id === "backspace") {
+    button.addEventListener("click", () => {
+      displayValue = displayValue.split("").slice(0, -1).join("");
+      displayDiv.textContent = displayValue;
+    });
   }
 });

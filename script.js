@@ -66,5 +66,12 @@ buttons.forEach((button) => {
         displayDiv.textContent = displayValue;
       }
     });
+  } else if (button.id === "C") {
+    button.addEventListener("click", () => {
+      (previousDisplayDiv.textContent = ""),
+        (displayValue = ""),
+        (displayDiv.textContent = "");
+      (num1 = NaN), (num2 = NaN), (operate = NaN);
+    });
   }
 });

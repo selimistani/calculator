@@ -1,0 +1,123 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Calculator container */
+.calculator {
+  width: 320px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+#output {
+  height: 50px;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#output-previous {
+  height: 25px;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  text-align: right;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.calculator-btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+/* Style for buttons */
+button {
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  background-color: #4d4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #616161;
+}
+
+/* Styling for the number buttons */
+.number {
+  background-color: #737373;
+}
+
+.number:hover {
+  background-color: #8c8c8c;
+}
+
+/* Styling for operator buttons */
+.operator {
+  background-color: #ff9500;
+}
+
+.operator:hover {
+  background-color: #ffab40;
+}
+
+/* Style for equals button */
+#\= {
+  background-color: #009688;
+  grid-column: span 2; /* Make it take up two columns */
+}
+
+#\=:hover {
+  background-color: #33ab9f;
+}
+
+/* Style for clear button */
+#C {
+  background-color: #d32f2f;
+}
+
+#C:hover {
+  background-color: #e53935;
+}
+
+/* Style for the decimal button */
+#\. {
+  background-color: #737373;
+}
+
+\.:hover {
+  background-color: #8c8c8c;
+}

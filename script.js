@@ -69,6 +69,7 @@ buttons.forEach((button) => {
         } else {
           displayValue = operate(num1, num2, operator);
           displayDiv.textContent = displayValue;
+          (operator = NaN), (num2 = NaN), (num1 = displayValue);
         }
         if (displayDiv.textContent.length > 9) {
           displayDiv.textContent = displayValue.toFixed(9);
